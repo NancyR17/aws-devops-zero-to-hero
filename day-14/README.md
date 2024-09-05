@@ -41,6 +41,7 @@ In this step, we'll configure AWS CodeBuild to build our Python application base
 - For the source provider, choose "AWS CodePipeline."
 - Select the pipeline you created in the previous step.
 - Configure the build environment, such as the operating system, runtime, and compute resources required for your Python application.
+- Assign the New service role as it is a service not user , name it as codebuild-s-service-role.
 - Specify the build commands, such as installing dependencies and running tests. Customize this based on your application's requirements.
 - Set up the artifacts configuration to generate the build output required for deployment.
 - Review the build project settings and click on the "Create build project" button to create your AWS CodeBuild project.
