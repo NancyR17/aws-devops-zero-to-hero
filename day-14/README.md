@@ -41,7 +41,11 @@ In this step, we'll configure AWS CodeBuild to build our Python application base
 - For the source provider, choose "AWS CodePipeline."
 - Select the pipeline you created in the previous step.
 - Configure the build environment, such as the operating system, runtime, and compute resources required for your Python application.
+- Assign the role as we are assiging roles to services ( code-build-f-role ) to aws codebuild.
+- Go to IAM, create service role for service: codebuild, name it
 - Specify the build commands, such as installing dependencies and running tests. Customize this based on your application's requirements.
+- Go to AWs Systems Manager  > Parameter store > name it as standard: /app/docker-credentials/username , Type: Secure string , KMS Source: My current account, KMS Key ID: alias/aws/ssm, Value: value of dokcer username
+- Create same for password, docker-registry/url with value as docker.io
 - Set up the artifacts configuration to generate the build output required for deployment.
 - Review the build project settings and click on the "Create build project" button to create your AWS CodeBuild project.
 
