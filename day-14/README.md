@@ -46,6 +46,8 @@ In this step, we'll configure AWS CodeBuild to build our Python application base
 - Specify the build commands, such as installing dependencies and running tests. Customize this based on your application's requirements.
 - Go to AWs Systems Manager  > Parameter store > name it as standard: /app/docker-credentials/username , Type: Secure string , KMS Source: My current account, KMS Key ID: alias/aws/ssm, Value: value of dokcer username
 - Create same for password, docker-registry/url with value as docker.io
+- Now you have created the role but you havn't provided the access to this service,  if it was iam user, then we will got to IAM user, but now this is IAM service, we will go to IAM roles and grant the permissions.
+- Go to IAM > Roles> go to ur role created ( code-build-service-f-role) > add permission > attach policies > search for ssm > AmazonSSMFullAccess( beacuse this is demo) > grant access.
 - Set up the artifacts configuration to generate the build output required for deployment.
 - Review the build project settings and click on the "Create build project" button to create your AWS CodeBuild project.
 
