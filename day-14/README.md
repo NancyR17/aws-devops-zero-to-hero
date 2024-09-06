@@ -154,7 +154,8 @@ systemctl status codedeploy-agent
 - Create Deployment Target Groups, Go to Codedeploy > application > deployment groups > create > Name: sample-python-app, service role: use same service role ( existing codedeploy access, modify ( EC2Full Access) & grant it the EC2 access as well ).or u can use 2 different service roles. > Environemnt : EC2, key: value ( Name: sample-python ), Deployment settings: CodedeployDefault.AllAtOnce > Create deployment Group
 - Go to DEployments > Create Deployment > Deployment-group: sample-python-app, My application is stored on GitHub  > connec to Git Hub > Repo Name: iam-veeramalla/aws-devops-zero-to-hero > commit ID: ( go to latest commit & put here ) > Create Deployment
 Note: In CodeDeploy, you have to put the appspec.yaml in root of the directory, this is not the case with CodeBuild.
-- 
+-  Install Docker in EC2 with sudo apt install docker.io -y
+-  
 
 
 
