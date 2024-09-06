@@ -150,6 +150,8 @@ systemctl status codedeploy-agent
 - Assign this Role to EC2.  Go to EC2 > Actions > Security > Modify IAM Role > choose that role from dropdown ( code-deploy-role ) > Update
 - After updating IAM, go to terminal & restart the agent service.
 - sudo service codedeploy-agent restart
+- In the Codedeploy, lets provide this EC2 instance as an agent, till now we have configured it, but haven't setup any connections to it.
+- Create Deployment Target Groups, Go to Codedeploy > application > deployment groups > create > Name: sample-python-app, service role: use same service role ( existing codedeploy access, modify ( EC2Full Access) & grant it the EC2 access as well ).or u can use 2 different service roles. > Environemnt : EC2, key: value ( Name: sample-python ), Deployment settings: CodedeployDefault.AllAtOnce > Create deployment Group
 - 
   
 
