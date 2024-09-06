@@ -30,6 +30,7 @@ It will act as a Orchestrator and invoke AWS CodeBuild. When someone make change
 - Save the CodeBuild project and go back to CodePipeline.
 - Continue configuring the pipeline stages, such as deploying your application using AWS Elastic Beanstalk or any other suitable deployment option.
 - Review the pipeline configuration and click on the "Create pipeline" button to create your AWS CodePipeline.
+- 
 
 Awesome job! We now have our pipeline ready to roll. Let's move on to the next step to set up AWS CodeBuild.
 
@@ -155,6 +156,8 @@ systemctl status codedeploy-agent
 - Go to DEployments > Create Deployment > Deployment-group: sample-python-app, My application is stored on GitHub  > connec to Git Hub > Repo Name: iam-veeramalla/aws-devops-zero-to-hero > commit ID: ( go to latest commit & put here ) > Create Deployment
 Note: In CodeDeploy, you have to put the appspec.yaml in root of the directory, this is not the case with CodeBuild.
 -  Install Docker in EC2 with sudo apt install docker.io -y
+-  Now Go to Code Pipeline > Go to ur pipeline > Edit > Add Stage > name it : code-deploy
+-  Edit action provider, name : code-deploy,input Artifacts: BuildArtifact, application name: sample-python-flask-app; deployment group : sample-python-app > Done
 -  
 
 
