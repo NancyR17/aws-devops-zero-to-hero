@@ -20,11 +20,12 @@ It will act as a Orchestrator and invoke AWS CodeBuild. When someone make change
 - Go to the AWS Management Console and navigate to the AWS CodePipeline service.
 - Click on the "Create pipeline" button.
 - Provide a name for your pipeline and click on the "Next" button.
+- Choose Role: AWSCodePipeline[Tick Yes ]
 - For the source stage, select "GitHub" as the source provider.
 - Connect your GitHub account to AWS CodePipeline and select your repository.
-- Choose the branch you want to use for your pipeline.
+- Choose the REPOSTORY NAMEbranch you want to use for your pipeline., outoputfromat: deafult CodePipeline
 - In the build stage, select "AWS CodeBuild" as the build provider.
-- Create a new CodeBuild project by clicking on the "Create project" button.
+- Create a new CodeBuild project by clicking on the "Create project" button., 
 - Configure the CodeBuild project with the necessary settings for your Python application, such as the build environment,  build commands, and artifacts.
 - Save the CodeBuild project and go back to CodePipeline.
 - Continue configuring the pipeline stages, such as deploying your application using AWS Elastic Beanstalk or any other suitable deployment option.
