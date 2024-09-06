@@ -15,6 +15,7 @@ Great! Now that we have our repository set up, we can move on to the next step.
 
 ## Create an AWS CodePipeline
 In this step, we'll create an AWS CodePipeline to automate the continuous integration process for our Python application. AWS CodePipeline will orchestrate the flow of changes from our GitHub repository to the deployment of our application. Let's go ahead and set it up:
+It will act as a Orchestrator and invoke AWS CodeBuild. When someone make changes to your code in GITHUB, it will call AWS codepipline and it will auto call to AWS CodeBuild automatically, we don't need to do it manually.
 
 - Go to the AWS Management Console and navigate to the AWS CodePipeline service.
 - Click on the "Create pipeline" button.
@@ -44,10 +45,14 @@ In this step, we'll configure AWS CodeBuild to build our Python application base
 - Assign the role as we are assiging roles to services ( code-build-f-role ) to aws codebuild.
 - Go to IAM, create service role for service: codebuild, name it
 - Specify the build commands, such as installing dependencies and running tests. Customize this based on your application's requirements.
+- Runtime: Standard, Image: standard/latest, image version: latest version of runtime, Environemnt: : Linux, Privilgede ( Tick Yes ] > update Environment. 
 - Go to AWs Systems Manager  > Parameter store > name it as standard: /app/docker-credentials/username , Type: Secure string , KMS Source: My current account, KMS Key ID: alias/aws/ssm, Value: value of dokcer username
 - Create same for password, docker-registry/url with value as docker.io
 - Now you have created the role but you havn't provided the access to this service,  if it was iam user, then we will got to IAM user, but now this is IAM service, we will go to IAM roles and grant the permissions.
 - Go to IAM > Roles> go to ur role created ( code-build-service-f-role) > add permission > attach policies > search for ssm > AmazonSSMFullAccess( beacuse this is demo) > grant access.
+  Error: Cannot connect to Docker daemon at unix://var/run/docker.sock Is the Docker daemon running?
+- Now grant additional permissions to the CodeBuild. as bydeafult AWS CodeBuild does not allow you to create Docker imge. 
+- Developer Tools > CodeBuild > Build Projects > sample-python-flask-service > Edit environemnt > Privilgede ( Tick Yes ] 
 - Set up the artifacts configuration to generate the build output required for deployment.
 - Review the build project settings and click on the "Create build project" button to create your AWS CodeBuild project.
 
